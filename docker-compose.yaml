@@ -1,6 +1,6 @@
 version: '3'
 services:
-  db:
+  mysql:
     image: mysql:5.7
     volumes:
       - db_data:/var/lib/mysql
@@ -22,7 +22,7 @@ services:
   app:
     depends_on:
       - mongodb
-      - db
+      - mysql
     image: kea_hire:latest
     ports:
       - "3000:3000"
