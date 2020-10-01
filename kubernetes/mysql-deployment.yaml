@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql
+  labels:
+    name: db
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      service: mysql
+  template:
+    metadata:
+      labels:
+        service: mysql
+    spec:
+      containers:
+      - name: mysql
+        image: mysql:5.7
+        volumeMounts:
+        - name: mysql-volume-mount
+          mountPath: /var/lib/mysql
+          subPath: mysql
+        env:
+        - name: MYSQL_USER
+          valueFrom:
+            secretKeyRef:
+              name: mysql-credentials
+              key: user
+        - name: MYSQL_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mysql-credentials
+              key: password
+        - name: MYSQL_ROOT_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mysql-credentials
+              key: root_pass
+        - name: MYSQL_DATABASE
+          value: keahire_db
+      restartPolicy: Always
+      volumes:
+      - name: mysql-volume-mount
+        persistentVolumeClaim:
+          claimName: mysql-pvc

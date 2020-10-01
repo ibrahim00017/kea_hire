@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kea_hire
+  labels:
+    name: kea_hire
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: kea_hire
+  template:
+    metadata:
+      labels:
+        app: kea_hire
+    spec:
+      containers:
+      - name: kea_hire
+        image: gcr.io/<PROJECT_ID>/node-kubernetes:v0.0.1
+        env:
+        - name: NODE_ENV
+          value: "development"
+        - name: PORT
+          value: "3000"
+        - name: MYSQL_USER
+          valueFrom:
+            secretKeyRef:
+              name: mysql-credentials
+              key: user
+        - name: MYSQL_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mysql-credentials
+              key: password
+      restartPolicy: Always
