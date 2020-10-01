@@ -49,8 +49,7 @@ $ docker push gcr.io/qwiklabs-gcp-02-c5b7d3af3a9c/kia-hire:1.0
 Secrets are used to manage sensitive info such as passwords, API tokens, and SSH keys. We’ll utilize a secret to store our Mysql database credentials.
 Create the secret:
 ```
-$ kubectl apply -f kubernetes/mysql-secret.ya
-ml
+$ kubectl apply -f kubernetes/mysql-secret.yaml
 ```
 ### Create a Persistent Disk:
 
