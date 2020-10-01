@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: kea_hire
+  name: kea
   labels:
-    service: kea_hire
+    service: kea
 spec:
   selector:
-    app: kea_hire
+    app: kea
   type: LoadBalancer
   ports:
     - port: 3000

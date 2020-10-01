@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: kea_hire
+  name: kea
   labels:
-    name: kea_hire
+    name: kea
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: kea_hire
+      app: kea
   template:
     metadata:
       labels:
-        app: kea_hire
+        app: kea
     spec:
       containers:
-      - name: kea_hire
+      - name: kea
         image: gcr.io/qwiklabs-gcp-04-703eac9a54e2/kia-hire:1.0
         env:
         - name: PORT
