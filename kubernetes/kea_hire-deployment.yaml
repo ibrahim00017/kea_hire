@@ -19,17 +19,17 @@ spec:
         image: gcr.io/qwiklabs-gcp-00-18abc4f5828a/kia:1.0
         ports:
           - containerPort: 3000
-        env:
-        - name: PORT
-          value: "3000"
-        - name: MYSQL_USER
-          valueFrom:
-            secretKeyRef:
-              name: mysql-credentials
-              key: user
-        - name: MYSQL_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: mysql-credentials
-              key: password
+        # env:
+        # - name: PORT
+        #   value: "3000"
+        # - name: MYSQL_USER
+        #   valueFrom:
+        #     secretKeyRef:
+        #       name: mysql-credentials
+        #       key: user
+        # - name: MYSQL_PASSWORD
+        #   valueFrom:
+        #     secretKeyRef:
+        #       name: mysql-credentials
+        #       key: password
       restartPolicy: Always
