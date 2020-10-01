@@ -41,8 +41,8 @@ $ gcloud container clusters get-credentials kia-kubernetes --zone us-central1-a
 Using the gcr.io/<PROJECT_ID>/<IMAGE_NAME>:<TAG> Docker tag format, build and then push the local Docker image, for the Node API, to the Container Registry:
 ```
 $ gcloud auth configure-docker
-$ docker build -t gcr.io/qwiklabs-gcp-02-95b2fc904b86/kia-hire:1.3 .
-$ docker push gcr.io/qwiklabs-gcp-02-95b2fc904b86/kia-hire:1.3
+$ docker build -t gcr.io/qwiklabs-gcp-02-95b2fc904b86/kia-hire:1.0 .
+$ docker push gcr.io/qwiklabs-gcp-02-95b2fc904b86/kia-hire:1.0
 ```
 
 ## Secrets
@@ -56,4 +56,29 @@ $ kubectl apply -f kubernetes/mysql-secret.yaml
 ```
 $ gcloud compute disks create db-data-disk --size 50GB --zone us-central1-a
 ```
+
+### Create the volume:
+
+```
+$ kubectl apply -f kubernetes/mysql_volume.yaml
+```
+
+### Create the volume claim:
+```
+$ kubectl apply -f kubernetes/mysql-volume-claim.yaml
+```
+## Mysql Setup
+With the database credentials set up along with a volume, we can now configure the Mysql database itself.
+
+```
+$ kubectl apply -f kubernetes/mysql-deployment.yaml
+$ kubectl apply -f kubernetes/mysql-service.yaml
+```
+
+## Kea_hire app Setup
+With that, we can now run the image on a pod by creating a deployment.
+```
+$ kubectl apply -f kubernetes/kea_hire-deployment.yaml
+```
+
 
