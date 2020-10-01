@@ -41,8 +41,8 @@ $ gcloud container clusters get-credentials kia-kubernetes --zone us-central1-a
 Using the gcr.io/<PROJECT_ID>/<IMAGE_NAME>:<TAG> Docker tag format, build and then push the local Docker image, for the Node API, to the Container Registry:
 ```
 $ gcloud auth configure-docker
-$ docker build -t gcr.io/qwiklabs-gcp-02-95b2fc904b86/kia-hire:1.0 .
-$ docker push gcr.io/qwiklabs-gcp-02-95b2fc904b86/kia-hire:1.0
+$ docker build -t gcr.io/qwiklabs-gcp-00-18abc4f5828a/kia:1.0 .
+$ docker push gcr.io/qwiklabs-gcp-00-18abc4f5828a/kia:1.0
 ```
 
 ## Secrets
@@ -79,6 +79,7 @@ $ kubectl apply -f kubernetes/mysql-service.yaml
 With that, we can now run the image on a pod by creating a deployment.
 ```
 $ kubectl apply -f kubernetes/kea_hire-deployment.yaml
+$ kubectl apply -f kubernetes/kea_hire-service.yaml
 ```
 
 
