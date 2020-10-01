@@ -37,3 +37,24 @@ Connect the ```kubectl``` client to the cluster:
 ```
 $ gcloud container clusters get-credentials kia-kubernetes --zone us-central1-a
 ```
+## Docker Registry
+Using the gcr.io/<PROJECT_ID>/<IMAGE_NAME>:<TAG> Docker tag format, build and then push the local Docker image, for the Node API, to the Container Registry:
+```
+$ gcloud auth configure-docker
+$ docker build -t gcr.io/qwiklabs-gcp-04-703eac9a54e2/kia-hire:1.0 .
+$ docker push gcr.io/qwiklabs-gcp-04-703eac9a54e2/kia-hire:1.0
+```
+
+## Secrets
+Secrets are used to manage sensitive info such as passwords, API tokens, and SSH keys. We’ll utilize a secret to store our Mysql database credentials.
+Create the secret:
+```
+$ kubectl apply -f kubernetes/mysql-secret.ya
+ml
+```
+### Create a Persistent Disk:
+
+```
+$ gcloud compute disks create db-data-disk --size 50GB --zone us-central1-a
+```
+

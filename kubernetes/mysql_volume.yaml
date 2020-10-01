@@ -11,5 +11,5 @@ spec:
   accessModes:
     - ReadWriteOnce
   gcePersistentDisk:
-    pdName: db_data
+    pdName: db-data-disk
     fsType: ext4
