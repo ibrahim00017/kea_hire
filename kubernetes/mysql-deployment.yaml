@@ -25,20 +25,23 @@ spec:
           subPath: mysql
         env:
         - name: MYSQL_USER
-          valueFrom:
-            secretKeyRef:
-              name: mysql-credentials
-              key: user
+          value: root
+          # valueFrom:
+          #   secretKeyRef:
+          #     name: mysql-credentials
+          #     key: user
         - name: MYSQL_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: mysql-credentials
-              key: password
+          value: paase
+          # valueFrom:
+          #   secretKeyRef:
+          #     name: mysql-credentials
+          #     key: password
         - name: MYSQL_ROOT_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: mysql-credentials
-              key: root_pass
+          value: paase
+          # valueFrom:
+          #   secretKeyRef:
+          #     name: mysql-credentials
+          #     key: root_pass
         - name: MYSQL_DATABASE
           value: keahire_db
       restartPolicy: Always
