@@ -25,7 +25,7 @@ $ gcloud config set project <PROJECT_ID>
 ### Finally, install ```kubectl```:
 
 ```
-$ gcloud components install kubectl
+$ sudo apt-get install kubectl
 ```
 ## Kubernetes Cluster
 ### Next, let's create a cluster on [Kubernetes Engine](https://console.cloud.google.com/kubernetes):
@@ -41,8 +41,8 @@ $ gcloud container clusters get-credentials kia-kubernetes --zone us-central1-a
 Using the gcr.io/<PROJECT_ID>/<IMAGE_NAME>:<TAG> Docker tag format, build and then push the local Docker image, for the Node API, to the Container Registry:
 ```
 $ gcloud auth configure-docker
-$ docker build -t gcr.io/qwiklabs-gcp-04-703eac9a54e2/kia-hire:1.0 .
-$ docker push gcr.io/qwiklabs-gcp-04-703eac9a54e2/kia-hire:1.0
+$ docker build -t gcr.io/qwiklabs-gcp-02-c5b7d3af3a9c/kia-hire:1.0 .
+$ docker push gcr.io/qwiklabs-gcp-02-c5b7d3af3a9c/kia-hire:1.0
 ```
 
 ## Secrets
