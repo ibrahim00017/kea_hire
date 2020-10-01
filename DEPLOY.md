@@ -41,8 +41,8 @@ $ gcloud container clusters get-credentials kia-kubernetes --zone us-central1-a
 Using the gcr.io/<PROJECT_ID>/<IMAGE_NAME>:<TAG> Docker tag format, build and then push the local Docker image, for the Node API, to the Container Registry:
 ```
 $ gcloud auth configure-docker
-$ docker build -t gcr.io/qwiklabs-gcp-00-18abc4f5828a/kia:1.0 .
-$ docker push gcr.io/qwiklabs-gcp-00-18abc4f5828a/kia:1.0
+$ docker build -t gcr.io/qwiklabs-gcp-00-18abc4f5828a/kia:1.1 .
+$ docker push gcr.io/qwiklabs-gcp-00-18abc4f5828a/kia:1.1
 ```
 
 ## Secrets
