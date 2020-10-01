@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: kea
-        image: gcr.io/qwiklabs-gcp-00-18abc4f5828a/kia:1.1
+        image: gcr.io/<PROJECT_ID>/kia:1.1
         ports:
           - containerPort: 3000
         # env:
