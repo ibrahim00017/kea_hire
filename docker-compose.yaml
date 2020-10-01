@@ -10,7 +10,7 @@ services:
       MYSQL_DATABASE: keahire_db
       MYSQL_USER: root
       MYSQL_PASSWORD: passe
-      MYSQL_PORT: 3366
+      MYSQL_PORT: 3306
 
   mongodb:
     image: bitnami/mongodb:latest

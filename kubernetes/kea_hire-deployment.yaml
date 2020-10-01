@@ -17,6 +17,8 @@ spec:
       containers:
       - name: kea
         image: gcr.io/qwiklabs-gcp-04-703eac9a54e2/kia-hire:1.0
+        ports:
+          - containerPort: 3000
         env:
         - name: PORT
           value: "3000"
